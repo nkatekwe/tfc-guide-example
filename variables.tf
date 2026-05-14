@@ -12,11 +12,15 @@ variable "instance_type" {
 }
 
 variable "instance_name" {
-  description = "Azure VM name"
-  default     = "Provisioned by Terraform"
+  description = "Name of the VM instance"
+  type        = string
+  
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9._-]+$", var.instance_name))
+    error_message = "VM name must contain only alphanumeric characters, dots, dashes, and underscores."
+  }
 }
 
-# Additional required Azure variables (not in AWS original)
 
 variable "resource_group_name" {
   description = "Name of the resource group"
