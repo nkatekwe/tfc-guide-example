@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 output "vm_image_id" {
-  value = azurerm_linux_virtual_machine.ubuntu.source_image_reference.version
+  value = azurerm_linux_virtual_machine.ubuntu.source_image_reference[0].version
 }
 
 output "vm_id" {
