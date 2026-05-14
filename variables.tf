@@ -14,6 +14,7 @@ variable "instance_type" {
 variable "instance_name" {
   description = "Name of the VM instance"
   type        = string
+  default     = "my-ubuntu-vm"
   
   validation {
     condition     = can(regex("^[a-zA-Z0-9._-]+$", var.instance_name))
